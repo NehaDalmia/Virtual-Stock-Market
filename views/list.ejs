@@ -1,0 +1,60 @@
+.<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="utf-8">
+    <title>Home</title>
+  </head>
+  <body>
+    <div>
+      <h1>Welcome <%=usernames[user_index]%></h1>
+      <h1>Your current balance is: <%=money[user_index]%></h1>
+      <% for (var i =0; i <3;  i++ ) { %>
+      <h1><%= stocks[i].name %> : <%= my_stocks[user_index][i] %> </h1>
+      <% } %>
+    <h1>Stocks</h1>
+    <div class="tbl-header">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Stocks left</th>
+            <th>Price of Stock</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    <div class="tbl-content">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tbody>
+          <%  stocks.forEach(function(stock){ %>
+          <tr>
+            <td><%=stock.name%></td>
+            <td><%=stock.quantity%></td>
+            <td><%=stock.price%></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    <script>
+      $(window).on("load resize ", function() {
+        var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+        $('.tbl-header').css({'padding-right':scrollWidth});
+      }).resize();
+    </script>
+    <div>
+      <a href="/Buy" class="shiny-btn">Buy</a>
+      <a href="/Sell" class="shiny-btn">Sell</a>
+      <a href="#" class="shiny-btn">Short Sell</a>
+    </div>
+    <script>
+      var counter = 1;
+      setInterval(() => {
+        counter++;
+        if(counter>5)
+        location.reload();
+      },1000);
+    </script>
+  </body>
+</html>
