@@ -1,0 +1,36 @@
+#title-bar {
+  color: white;
+  padding: 1% 0;
+  text-align: center;
+}
+.title-bold {
+  font-weight: 700;
+}
+.title-light {
+  font-weight: 300;
+}
+.welcome-msg {
+  margin: 30px 0;
+}
+hr {
+  border-top: 2px solid rgba(0,0,0,.1);
+  width: 35%;
+}
+.user-info-container {
+  width: 30%;
+  margin: 15px auto;
+  text-align: center;
+}
+.card{
+  margin-top: 40px;
+}
+.stocks-heading {
+  margin-bottom: 20px;
+}
+.table-container {
+  width: 80%;
+}
+.buttons-container {
+  margin: 30px auto;
+  width: 60%;
+}
