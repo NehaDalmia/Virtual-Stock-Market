@@ -1,53 +1,96 @@
-.<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <link rel="stylesheet" href="styles.css">
     <meta charset="utf-8">
     <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="list.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a27b07fa54.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <div>
-      <h1>Welcome <%=usernames[user_index]%></h1>
-      <h1>Your current balance is: <%=money[user_index]%></h1>
-      <% for (var i =0; i <3;  i++ ) { %>
-      <h1><%= stocks[i].name %> : <%= my_stocks[user_index][i] %> </h1>
-      <% } %>
-    <h1>Stocks</h1>
-    <div class="tbl-header">
-      <table cellpadding="0" cellspacing="0" border="0">
-        <thead>
-          <tr>
-            <th>Company</th>
-            <th>Stocks left</th>
-            <th>Price of Stock</th>
-          </tr>
-        </thead>
-      </table>
-    </div>
-    <div class="tbl-content">
-      <table cellpadding="0" cellspacing="0" border="0">
-        <tbody>
-          <%  stocks.forEach(function(stock){ %>
-          <tr>
-            <td><%=stock.name%></td>
-            <td><%=stock.quantity%></td>
-            <td><%=stock.price%></td>
-          </tr>
-          <% }) %>
-        </tbody>
-      </table>
-    </div>
-    <script>
+
+    <!-- Title -->
+
+    <section id="title-bar" class="bg-dark sticky-top">
+      <h3 class="title-bold">ST. STEPHENS' <span class="title-light">VIRTUAL STOCK MARKET</span></h3>
+    </section>
+
+    <!-- Welcome Message/Balance -->
+
+    <section id="user-info">
+      <div class="container-fluid user-info-container">
+        <div class="welcome-msg">
+          <h5>Welcome, <%=usernames[user_index]%> </h5>
+        </div>
+        <hr>
+        <div class="card">
+          <div class="card-header">
+            Your current balance is:
+          </div>
+          <div class="card-body">
+            <h4 class="card-title"><%=money[user_index]%></h4>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- <% for (var i =0; i <3;  i++ ) { %>
+    <h1><%= stocks[i].name %> : <%= my_stocks[user_index][i] %> </h1>
+    <% } %> -->
+
+    <!-- Table of Stocks -->
+
+    <section id="stocks-table">
+      <div class="container-fluid table-container">
+        <h3 class="stocks-heading">Stonks <i class="fas fa-chart-line"></i></h3>
+        <table class="table table-hover">
+          <thead class="thead-light">
+            <tr>
+              <th>Company</th>
+              <th>Stocks Purchased</th>
+              <th>Price of Stock</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% var i=0 %>
+            <%  stocks.forEach(function(stock){ %>
+            <tr>
+              <td><%=stock.name%></td>
+              <td><%=my_stocks[user_index][i++]%></td>
+              <td><%=stock.price%></td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <!-- <script>
       $(window).on("load resize ", function() {
         var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
         $('.tbl-header').css({'padding-right':scrollWidth});
       }).resize();
-    </script>
-    <div>
-      <a href="/Buy" class="shiny-btn">Buy</a>
-      <a href="/Sell" class="shiny-btn">Sell</a>
-      <a href="#" class="shiny-btn">Short Sell</a>
-    </div>
+    </script> -->
+
+    <!-- Buttons -->
+
+    <section id="buttons">
+      <div class="container-fluid buttons-container">
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <a href="/Buy" class="btn btn-lg btn-block btn-outline-success">Buy</a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="/Sell" class="btn btn-lg btn-block btn-outline-danger">Sell</a>
+          </div>
+          <div class="col-lg-4">
+            <a href="#" class="btn btn-lg btn-block btn-outline-dark">Short Sell</a>
+          </div>
+        </div>
+      </div>
+    </section>
     <script>
       var counter = 1;
       setInterval(() => {
