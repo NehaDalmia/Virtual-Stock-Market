@@ -1,0 +1,13 @@
+h1 {
+  font-family: "Archivo Black";
+  font-size: 3rem;
+}
+hr {
+  border-top: 2px solid rgba(0,0,0,.1);
+  width: 60%;
+}
+.container-fluid {
+  text-align: center;
+  margin: 150px auto;
+  width: 25%;
+}
