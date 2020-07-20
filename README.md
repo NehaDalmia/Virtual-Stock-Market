@@ -1,2 +1,2 @@
-# Virrual-Stock-Market
+# Virtual-Stock-Market
 A virtual stock market simulation
