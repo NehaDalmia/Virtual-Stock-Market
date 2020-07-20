@@ -1,18 +1,36 @@
-.<h1>YO!</h1>
-.<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Sell Stocks</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="sell.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </head>
   <body>
-    <h1>BUY!</h1>
-    <form action="/Sell" class="form-signin" method = "post">
-      <select id="cars" name="stocks">
-      <option value="0">Reliance</option>
-      <option value="1">Apple</option>
-      <option value="2">Mango</option>
-      <input type="text" id="Number of Stocks" name="no_of_stocks">
-    </form>
+    <div class="container-fluid">
+      <h1>SELL</h1>
+      <hr>
+      <form action="/Sell" class="form-signin" method = "post">
+          <div class="form-row">
+            <div class="form-group col-lg-12">
+              <label for="cars">Choose Company</label>
+              <select id="cars" name="stocks" class="form-control">
+                <option selected>Choose...</option>
+                <option value ="0">Reliance</option>
+                <option value ="1">Apple</option>
+                <option value ="2">Mango</option>
+              </select>
+            </div>
+            <div class="form-group col-lg-12">
+              <label for="Number of Stocks">Enter Number of Stocks</label>
+              <input type="text" class="form-control" id="Number of Stocks" name="no_of_stocks">
+            </div>
+          </div>
+      </form>
+    </div>
   </body>
 </html>
